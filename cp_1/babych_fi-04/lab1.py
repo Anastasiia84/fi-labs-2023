@@ -27,9 +27,9 @@ def edit_text(text, dictionary1):
     return text
 
 
-print("Edited text without space", edit_text(
-    text, dictionary))  # without space
-print("Edited text with space", edit_text(text, dictionary1))  # with space
+# print("Edited text without space", edit_text(
+    # text, dictionary))  # without space
+# print("Edited text with space", edit_text(text, dictionary1))  # with space
 
 
 def FrequencyLetter(text):
@@ -76,21 +76,14 @@ def EntropyBigram(frequency):
     n = 2
     entropy = 0
     for i in frequency:
-        frequency[i] += -frequency[i]*math.log2(frequency[i])
+        frequency[i] += frequency[i]*math.log2(frequency[i])
 
         entropy += frequency[i]
     res = round(entropy/n, 6)
-    return res
+    return -res
 
 
 def EntropyLetter(frequency):
-    entropy = 0
-    for i in frequency:
-        entropy += frequency[i]*math.log2(frequency[i])
-    return round(-entropy/1, 6)
-
-
-def EntropyBig(frequency):
     entropy = 0
     for i in frequency:
         entropy += frequency[i]*math.log2(frequency[i])
@@ -135,16 +128,16 @@ entrb2 = EntropyBigram(FrequencyBigram1(edit_text(text, dictionary1)))
 entrb3 = EntropyBigram(FrequencyBigram(edit_text(text, dictionary)))
 entrb4 = EntropyBigram(FrequencyBigram1(edit_text(text, dictionary)))
 
-"""
-print("\nEntropy monogram with space", entrm1)
-print("\nEntropy monogram without space", entrm2)
+
+# print("\nEntropy monogram with space", entrm1)
+# print("\nEntropy monogram without space", entrm2)
 
 print("\nEntropy bigram with space", entrb1)
 print("\nEntropy bigram with space and with cross", entrb2)
 print("\nEntropy bigram without space", entrb3)
 print("\nEntropy bigram without space and with cross", entrb4)
 
-
+"""
 # Redundancy
 print("\nRedundancy monogram with space", RedundancyWithSpace(
     EntropyLetter(FrequencyLetter(edit_text(text, dictionary1)))))
