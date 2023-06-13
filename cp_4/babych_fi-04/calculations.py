@@ -57,3 +57,6 @@ if __name__ == '__main__':
     pool.map(partial(calculate_final, l1_results=l1_results, l2_results=l2_results), l3_vectors)
 
 
+a=4
+b=5
+print(a+b)
